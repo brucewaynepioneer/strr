@@ -1,14 +1,12 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
-from config import OWNER_ID
-
-
+# Removed the import statement for OWNER_ID since it is not being used
 def filter(cmd: str):
     return filters.private & filters.incoming & filters.command(cmd)
 
 async def start(bot: Client, msg: Message):
-    video = "https://te.legra.ph/file/ca18538c60315e9c282d3.mp4"  # Replace "link_to_video.mp4" with the direct link of the .mp4 video
+    video = "start.mp4"  # Replace "link_to_video.mp4" with the direct link of the .mp4 video
     await bot.send_video(
         chat_id=msg.chat.id,
         video=video,
