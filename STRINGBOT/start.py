@@ -6,10 +6,10 @@ def filter(cmd: str):
     return filters.private & filters.incoming & filters.command(cmd)
 
 async def start(bot: Client, msg: Message):
-    video = "start.mp4"  # Replace "link_to_video.mp4" with the direct link of the .mp4 video
-    await bot.send_video(
+    gif = "start.mp4"  # Replace "link_to_video.mp4" with the direct link of the .mp4 video
+    await bot.send_animation(
         chat_id=msg.chat.id,
-        video=video,
+        animation=gif,
         caption=f"""Welcome to String Bot!
 
 This is an advanced Pyrogram and Telethon string session generator bot made with ❤️ by [Team SPY](https://t.me/dev_gagan).
