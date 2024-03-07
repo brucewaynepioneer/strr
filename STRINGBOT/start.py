@@ -1,7 +1,10 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
-@Client.on_message(filters.private & filters.command("start"))
+# Removed the import statement for OWNER_ID since it is not being used
+def filter(cmd: str):
+    return filters.private & filters.incoming & filters.command(cmd)
+
 async def start(bot: Client, msg: Message):
     gif = "start.mp4"  # Replace "link_to_video.mp4" with the direct link of the .mp4 video
     await bot.send_animation(
@@ -22,6 +25,6 @@ This is an advanced Pyrogram and Telethon string session generator bot made with
                     InlineKeyboardButton("Official", url="https://t.me/stringsessionAK47")
                 ]
             ]
-        ),
-        disable_web_page_preview=True,
+        )
+        
     )
